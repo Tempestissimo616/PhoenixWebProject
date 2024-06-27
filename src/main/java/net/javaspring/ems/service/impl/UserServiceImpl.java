@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService {
         //这个方法会被 authService里的register 取代
 
         User user = modelMapper.map(userDto, User.class);
-        Department department = departmentRepository.findById(userDto.getDepartmentId()).orElseThrow(() -> new ResourceNotFoundException("Department", "id", userDto.getDepartmentId()));
-        user.setDepartment(department);
+        //Department department = departmentRepository.findById(userDto.getDepartmentId()).orElseThrow(() -> new ResourceNotFoundException("Department", "id", userDto.getDepartmentId()));
+        //user.setDepartment(department);
         User savedUser = userRepository.save(user);
         return modelMapper.map(savedUser, UserDto.class);
     }
